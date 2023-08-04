@@ -1,0 +1,77 @@
+<div class="card">
+    <h5>Personas</h5>
+    <p-table #dt1 [value]="personas" selectionMode="single" [(selection)]="selectedPersonas" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
+        [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="tipoidentificacion" style="width:25%">Tipo identificacion<p-sortIcon field="tipoidentificacion"></p-sortIcon></th>
+                <th pSortableColumn="identificacion" style="width:25%">Identificacion<p-sortIcon field="identificacion"></p-sortIcon></th>
+                <th pSortableColumn="nombre" style="width:25%">Nombre<p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="apellido" style="width:25%">Apellido<p-sortIcon field="apellido"></p-sortIcon></th>
+                <th pSortableColumn="telefono" style="width:25%">Telefono<p-sortIcon field="telefono"></p-sortIcon></th>
+                <th pSortableColumn="direccion" style="width:25%">Direccion<p-sortIcon field="direccion"></p-sortIcon></th>
+                <th pSortableColumn="email" style="width:25%">Email<p-sortIcon field="email"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'tipoidentificacion', 'contains')" [value]="$any(dt1).filters['tipoidentificacion']?.value" placeholder="Buscar por tipo de identificacion" class="w-full">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'identificacion', 'contains')" [value]="$any(dt1).filters['identificacion']?.value" placeholder="Buscar por identificacion" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'nombre', 'contains')" [value]="$any(dt1).filters['nombre']?.value" placeholder="Buscar por nombre" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'apellido', 'contains')" [value]="$any(dt1).filters['apellido']?.value" placeholder="Buscar por apellido" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'telefono', 'contains')" [value]="$any(dt1).filters['telefono']?.value" placeholder="Buscar por telefono" class="w-full">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'direccion', 'contains')" [value]="$any(dt1).filters['direccion']?.value" placeholder="Buscar por direccion" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'email', 'contains')" [value]="$any(dt1).filters['email']?.value" placeholder="Buscar por email" class="w-full">
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-personas>
+            <tr [pSelectableRow]="personas">
+                <td>
+                    <span class="p-column-title">Tipo identificacion</span>
+                    {{personas.tipoidentificacion}}
+                </td>
+                <td>
+                    <span class="p-column-title">Identificacion</span>
+                    {{personas.identificacion}}
+                </td>
+                <td>
+                    <span class="p-column-title">Nombre</span>
+                    {{personas.nombre}}
+                </td>
+                <td>
+                    <span class="p-column-title">Apellido</span>
+                    {{personas.apellido}}
+                </td>
+                <td>
+                    <span class="p-column-title">Telefono</span>
+                    {{personas.telefono}}
+                </td>
+                <td>
+                    <span class="p-column-title">Direccion</span>
+                    {{personas.direccion}}
+                </td>
+                <td>
+                    <span class="p-column-title">Email</span>
+                    {{personas.email}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="4">Personas no encontradas.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

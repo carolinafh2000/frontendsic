@@ -1,0 +1,17 @@
+.container{
+    border-radius: 10px;
+    border: 2px solid #0067b1;
+    width: 500px;
+    height: 450px;
+}
+
+.containerthree{
+    padding-top: 5%;
+}
+
+button{
+    margin-top: 5%;
+    margin-left: 40%;
+    margin-right: 40%;
+
+}

@@ -1,0 +1,27 @@
+
+<div class="container">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Correo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users" class="text-center">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.gender}}</td>
+                        <td>{{user.status}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+</div>
+
+

@@ -1,0 +1,69 @@
+<div class="card">
+    <h5>Tramites</h5>
+    <p-table #dt1 [value]="tramites" selectionMode="single" [(selection)]="selectedTramites" dataKey="id" [tableStyle]="{'min-width': '50rem'}"
+        [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="radicado" style="width:25%">Radicado<p-sortIcon field="radicado"></p-sortIcon></th>
+                <th pSortableColumn="ano" style="width:25%">Año<p-sortIcon field="ano"></p-sortIcon></th>
+                <th pSortableColumn="nombre" style="width:25%">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="descripcion" style="width:25%">Descripcion<p-sortIcon field="descripcion"></p-sortIcon></th>
+                <th pSortableColumn="solicitante" style="width:25%">Solicitante<p-sortIcon field="solicitante"></p-sortIcon></th>
+                <th pSortableColumn="funcionario" style="width:25%">Funcionario<p-sortIcon field="funcionario"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'radicado', 'contains')" [value]="$any(dt1).filters['radicado']?.value" placeholder="Buscar por radicado" class="w-full">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'ano', 'contains')" [value]="$any(dt1).filters['ano']?.value" placeholder="Buscar por ano" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'nombre', 'contains')" [value]="$any(dt1).filters['nombre']?.value" placeholder="Buscar por nombre" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'descripcion', 'contains')" [value]="$any(dt1).filters['descripcion']?.value" placeholder="Buscar por descripcion" class="w-full">
+                </th> 
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'solicitante', 'contains')" [value]="$any(dt1).filters['solicitante']?.value" placeholder="Buscar por solicitante" class="w-full">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($any($event).target.value, 'funcionario', 'contains')" [value]="$any(dt1).filters['funcionario']?.value" placeholder="Buscar por funcionario" class="w-full">
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-tramites>
+            <tr [pSelectableRow]="tramites">
+                <td>
+                    <span class="p-column-title">Radicado</span>
+                    {{tramites.radicado}}
+                </td>
+                <td>
+                    <span class="p-column-title">Año</span>
+                    {{tramites.ano}}
+                </td>
+                <td>
+                    <span class="p-column-title">Nombre</span>
+                    {{tramites.nombre}}
+                </td>
+                <td>
+                    <span class="p-column-title">Descripcion</span>
+                    {{tramites.descripcion}}
+                </td>
+                <td>
+                    <span class="p-column-title">Solicitante</span>
+                    {{tramites.solicitante}}
+                </td>
+                <td>
+                    <span class="p-column-title">Funcionario</span>
+                    {{tramites.funcionario}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="4">Tramites no encontrados.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
